@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Generate Apology</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      // $("button").click(function(){
+      //   $("#generatedText").fadeIn();
+      //   $("#div2").fadeIn("slow");
+      //   $("#div3").fadeIn(3000);
+      // });
+      $(".generatedText").each(function(index) {
+        $(this).delay(1000*index).fadeIn("slow");
+      })
+    });
+    </script>
+  </head>
+  <body id="generate">
+    <div class="spacer"></div>
+    <div id="apologyText">
+      <% for (var i = 0; i < data.length; i++) { %>
+        <span class="generatedText"><%= data[i] %></span>
+      <% } %>
+    </div>
+    <div class="buttons">
+        <a href="/generate"><button class="generateButton" type="button" name="button">Refresh</button></a>
+        <a href="/"><button class="generateButton" type="button" name="button">Home</button></a>
+    </div>
+  </body>
+</html>

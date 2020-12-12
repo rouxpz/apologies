@@ -1,0 +1,136 @@
+body {
+  background-size: auto;
+  font-family: 'Playfair Display', serif;
+}
+
+#landing {
+  background-image: url("../img/water.jpg");
+}
+
+#submit {
+  background-image: url("../img/forest.jpg");
+}
+
+#generate {
+  background-image: url("../img/sunset.jpg");
+}
+
+.container {
+  padding-top:30%;
+  width: 100%;
+  height: 200px;
+  position: relative;
+  /* background-color: blue; */
+}
+
+.submissionContainer {
+  padding-top:9%;
+  width: 50%;
+  margin:auto;
+}
+
+.center {
+  /* width: 50%; */
+  /* background-color: gray; */
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button, #submitButton {
+  border: none;
+  border-radius: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  /* text-align: center; */
+}
+
+#submitButton {
+  padding: 10px 25px;
+  margin-top: 10px;
+  background-color: #88cc5e;
+}
+
+#submitButton:hover {
+  background-color: #283d1c;
+  border: 1px solid;
+  border-color: white;
+  color:white;
+  cursor: pointer;
+}
+
+h1 {
+  color: white;
+  padding: 10px;
+  width: 102%;
+}
+
+#submitHeading {
+  background-color: #517a38;
+}
+
+textarea {
+  border:none;
+  font-size: 16px;
+  font-family: Arial;
+  padding:5px;
+}
+
+.homeButton {
+  background-color: #3b9cc3;
+  display: inline-block;
+  margin: 20px;
+  padding: 25px 50px;
+}
+
+.buttons {
+  position:fixed;
+  right:5%;
+  bottom: 5%;
+}
+
+.generateButton {
+  background-color: #f38a88;
+  font-size: 16px;
+  padding: 10px 10px;
+  margin:0px 10px;
+}
+
+.generateButton:hover {
+  background-color: #772c2b;
+  border: 1px solid;
+  border-color: white;
+  color:white;
+  cursor: pointer;
+}
+
+.homeButton:hover {
+  background-color: #173e4d;
+  border: 1px solid;
+  border-color: white;
+  color:white;
+  cursor: pointer;
+}
+
+.spacer {
+  width: 100%;
+  height: 100px;
+}
+
+#apologyText {
+  top: 30%;
+  width: 80%;
+  height: 400px;
+  padding:20px;
+  margin:auto;
+  background-color: rgb(87,82,136, 0.6);
+}
+
+.generatedText {
+  color: rgb(255,255,255);
+  display: none;
+  font-size: 30px;
+}

@@ -1,0 +1,7 @@
+.DS_Store
+/workshop-materials/.git
+/workshop-materials/.gitignore
+/workshop-materials/node_modules
+/workshop-materials/npm-debug.log
+/workshop-materials/.DS_Store
+/workshop-materials/*.env

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/prompt-styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <title>Apology Workshop: Anthromedialities</title>
+  </head>
+  <body>
+    <div id="home">
+      <div class ="title">Apology Workshop</div>
+      <div class="subtitle">facilitated by <a href="https://roopavasudevan.com" target="_blank">roopa vasudevan</a><br>
+      as part of anthromedialities, fall 2020<br></div>
+    </div>
+
+    <div class="section" id="s1">
+      <div class="title">Warning</div>
+      <div class="text">
+        <p>this workshop may bring up some emotional or uncomfortable feelings as we work through notions of <span class="highlight">apology</span>, <span class="highlight">regret</span>, and <span class="highlight">guilt</span>. i would advise working through these prompts with your camera and microphone off. i will play music during the guided writing sections and keep time.<br>
+        <br>you can write the first two prompts however you wish. for the third, you should type your response out on a computer, as you will need to copy and paste it into a website afterwards.
+        </p>
+      </div>
+    </div>
+
+    <div class="section" id="s2">
+      <div class="title">What happened?</div>
+      <div class="text">
+        <p>write about what happened, keeping as much to concrete facts as possible. try to remain distanced, if you can, and to not incorporate emotion here at all. this is so you can get a sense of the people and actions involved <span class="highlight">before</span> evaluating how the situation made you feel.</p>
+      </div>
+    </div>
+
+    <div class="section" id="s3">
+      <div class="title">Why and how do you carry guilt?</div>
+      <div class="text">
+        <p>why do you feel bad about what happened? what would you do differently if you were to go back in time? what physical or emotional reactions do you have when you think about this event?</p>
+      </div>
+    </div>
+
+    <div class="section" id="s4">
+      <div class="title">What would you say?</div>
+      <div class="text">
+        <p>spend some time writing out an apology for this experience. if you can, type this out on a computer. keep in mind that although these words will not be attributed to you and might not be used in context, you will probably want to anonymize your apology for the purposes of this exercise.</p>
+      </div>
+    </div>
+
+    <div class="section" id="s5">
+      <div class="title"><a href="/submit">apologies.herokuapp.com/submit</a></div>
+      <div class="text">
+        <p>visit this link and copy your apology into the text box. then press submit.</p>
+      </div>
+    </div>
+
+    <div id="clock">
+      <button type="button" name="timer" class = "timerButton" id="startTimer" onclick="setTime()">Start Timer</button>
+      <p id="time"></p>
+    </div>
+
+    <div id="next"><button class="button" onclick="advanceSlide()" type="button" name="button">>>></button></div>
+
+    <script type="text/javascript">
+
+      var state = 0;
+      var padding = 2;
+      var startClock;
+
+      function advanceSlide() {
+          state++;
+          console.log(state);
+          var sections = document.getElementsByClassName('section');
+          var text = document.getElementsByClassName('text');
+
+          if (state >= 1 && state < 6) {
+            document.getElementById('home').style.display = 'none';
+
+            if (state > 1 && state < 5) {
+              padding += 2;
+            } else if (state == 5) {
+              padding = 10;
+            } else {
+              padding = 0;
+            }
+
+            for (var i = 0; i < sections.length; i++) {
+              if (i != state - 1) {
+                sections[i].style.display = "none";
+                text[i].style.display = "none";
+              } else {
+                sections[i].style.display = "block";
+                text[i].style.display = "block";
+                sections[i].style.paddingTop = '' + padding + '%';
+              }
+            }
+          } else if (state >= 6) {
+            for (var i = 0; i < sections.length; i++) {
+              sections[i].style.display = "none";
+              text[i].style.display = "none";
+              sections[i].style.paddingTop = '' + padding + '%';
+            }
+
+            document.getElementById('home').style.display = 'block';
+            state = 0;
+          }
+
+          if (state >=2 && state <=4) {
+            document.getElementsByClassName("timerButton")[0].style.display = "block";
+            document.getElementById("time").style.display = "none";
+          } else {
+            document.getElementsByClassName("timerButton")[0].style.display = "none";
+          }
+        }
+
+        function countdownClock(duration, display) {
+          
+          //function from StackOverflow: https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
+
+          display.textContent = '';
+          var timer = duration, minutes, seconds;
+          startClock = setInterval(function () {
+              minutes = parseInt(timer / 60, 10);
+              seconds = parseInt(timer % 60, 10);
+
+              minutes = minutes < 10 ? "0" + minutes : minutes;
+              seconds = seconds < 10 ? "0" + seconds : seconds;
+
+              display.textContent = minutes + ":" + seconds;
+
+              if (--timer < 0) {
+                  timer = duration;
+                  stopClock();
+              }
+          }, 1000);
+        }
+
+        function stopClock() {
+          clearInterval(startClock);
+          console.log("clock cleared!");
+        }
+
+        function setTime() {
+          document.getElementById("time").style.display = "block";
+          document.getElementsByClassName("timerButton")[0].style.display = "none";
+          var fiveMinutes = 60 * 5;
+          var tenMinutes = 60 * 10;
+          display = document.querySelector('#time');
+          if (state == 2 || state == 3) {
+            countdownClock(fiveMinutes, display);
+          } else if (state == 4) {
+            countdownClock(tenMinutes, display);
+          }
+        }
+
+    </script>
+  </body>
+</html>
