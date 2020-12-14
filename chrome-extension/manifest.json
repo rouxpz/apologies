@@ -2,5 +2,13 @@
   "name": "Apology App",
   "version": "1.0",
   "description": "Prototype version for Anthromedialities, Fall 2020",
-  "manifest_version": 1
-}
+  "permissions": ["activeTab", "declarativeContent", "storage", "alarms"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "page_action": {
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+  }

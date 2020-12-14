@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Big Tech Is Sorry</title>
+    <style>
+      .company {
+        height: 30px;
+        width: 30px;
+        /* outline: none; */
+        border-style: solid;
+        margin:0;
+      }
+      img {
+        margin: 0;
+      }
+
+      #amazon, #google, #facebook {
+        display:none;
+        margin-top:5px;
+      }
+
+      #amazonText, #googleText, #facebookText {
+        display:none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="image" src="images/amazon.jpg" class="company" id="amazon">
+    <input type="image" src="images/facebook.png" class="company" id="facebook">
+    <input type="image" src="images/google.png" class="company" id="google">
+    <div id="amazonText" class="apologyText">
+      Testing. I'm really sorry for whatever data breach I caused. Sincerely, Jeff Bezos
+    </div>
+
+    <div id="googleText" class="apologyText">
+      Testing. I'm really sorry for not letting you use any other search engine. Sincerely, Sundar Pichai
+    </div>
+
+    <div id="facebookText" class="apologyText">
+      Testing. I'm really sorry for destroying democracy. Sincerely, Mark Zuckerberg
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
