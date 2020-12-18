@@ -1,4 +1,6 @@
 let timer = Math.floor(Math.random() * 5) + 1;
+var totalCompanies = ["amazon", "facebook", "google"];
+var toSaySorry = ["amazon", "google"];
 
 chrome.runtime.onInstalled.addListener(function() {
   // alert("Alarm set for " + timer + " minutes");
@@ -11,10 +13,26 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.msg == 'reload apologies') {
+    toSaySorry = [];
+    for (var i = 0; i < request.companiesNumber; i++) {
+      //select company randomly and add to toSaySorry
+      var indexToSelect = Math.floor(Math.random() * totalCompanies.length);
+      if (toSaySorry.indexOf(totalCompanies[indexToSelect]) == -1) {
+        toSaySorry.push(totalCompanies[indexToSelect]);
+      }
+    }
+  }
+  var newTimer =  Math.floor(Math.random() * 2) + 1;
+  chrome.alarms.create("Second", {delayInMinutes: 0});
+  console.log(toSaySorry);
+  console.log("New alarm launched for " + newTimer + " minutes");
+});
+
 chrome.alarms.onAlarm.addListener(function() {
-  var toSaySorry = ["amazon", "google"];
   alert("You have a new apology waiting.");
   chrome.storage.sync.set({apologies:toSaySorry}, function() {
-    console.log('Apologies from: ' + toSaySorry[0] + " and " + toSaySorry[1]);
+    console.log('new apologies available');
   });
 });

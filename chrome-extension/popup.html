@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <title>Big Tech Is Sorry</title>
     <style>
+      body {
+        font-family: Arial;
+        font-size: 16px;
+        /* min-width: 300px; */
+      }
       .company {
         height: 30px;
         width: 30px;
@@ -15,9 +20,32 @@
         margin: 0;
       }
 
+      .parent {
+        display: flex;
+        width: 100%;
+      }
+
+      .group1 {
+        flex: 3;
+        float: right;
+        margin-top: 5px;
+        /* margin-left: 10px; */
+        /* display:none; */
+        /* max-width: 300px; */
+      }
+
+      .group2 {
+        flex: 1;
+        float: left;
+        /* position:fixed; */
+        /* top:10px;
+        right: 10px; */
+      }
+
       #amazon, #google, #facebook {
         display:none;
         margin-top:5px;
+        /* margin-right: 10px; */
       }
 
       #amazonText, #googleText, #facebookText {
@@ -26,19 +54,25 @@
     </style>
   </head>
   <body>
-    <input type="image" src="images/amazon.jpg" class="company" id="amazon">
-    <input type="image" src="images/facebook.png" class="company" id="facebook">
-    <input type="image" src="images/google.png" class="company" id="google">
-    <div id="amazonText" class="apologyText">
-      Testing. I'm really sorry for whatever data breach I caused. Sincerely, Jeff Bezos
-    </div>
+    <div class="parent">
+      <div class="group2">
+        <input type="image" src="images/amazon.jpg" class="company" id="amazon">
+        <input type="image" src="images/facebook.png" class="company" id="facebook">
+        <input type="image" src="images/google.png" class="company" id="google">
+      </div>
+      <div class="group1">
+        <div id="amazonText" class="apologyText">
+          Testing. I'm really sorry for whatever data breach I caused. Sincerely, Jeff Bezos
+        </div>
 
-    <div id="googleText" class="apologyText">
-      Testing. I'm really sorry for not letting you use any other search engine. Sincerely, Sundar Pichai
-    </div>
+        <div id="googleText" class="apologyText">
+          Testing. I'm really sorry for not letting you use any other search engine. Sincerely, Sundar Pichai
+        </div>
 
-    <div id="facebookText" class="apologyText">
-      Testing. I'm really sorry for destroying democracy. Sincerely, Mark Zuckerberg
+        <div id="facebookText" class="apologyText">
+          Testing. I'm really sorry for destroying democracy. Sincerely, Mark Zuckerberg
+        </div>
+      </div>
     </div>
     <script src="popup.js"></script>
   </body>
