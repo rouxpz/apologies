@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Uber Move Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/UberMoveMedium.woff);
+}
+
+@font-face {
+  font-family: 'Uber Move Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/UberMoveBold.woff);
+}
+
+@font-face {
+  font-family: 'URW Form Semi Condensed Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/URWFormSemiCond-Medium.woff);
+}
+
+#uber {
+    background-color: black;
+    color:white;
+    font-family: 'Uber Move Medium', sans-serif;
+    font-size: xx-large;
+    margin: 2%;
+  }
+
+#facebook {
+  background-color: #4170b7;
+  color: white;
+  font-family: 'URW Form Semi Condensed Medium', sans-serif;
+  font-size: xx-large;
+  margin: 2%;
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
+.uberLink:hover {
+  background-color: white;
+  color: black;
+  text-decoration: line-through;
+}
