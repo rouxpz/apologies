@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Google Says Sorry</title>
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body id="google">
+    <p>For years, <a class="googleLink" href="https://news.crunchbase.com/news/money-insider-googlelawsuit/">Google has faced criticism</a> about its dominant role in the search engine market. It also has been accused of <a class="googleLink" href="https://www.wsj.com/articles/how-google-interferes-with-its-search-algorithms-and-changes-your-results-11573823753">manipulating search results</a>, and chastised for <a href="https://themarkup.org/google-the-giant/2020/07/28/google-search-results-prioritize-google-products-over-competitors" class="googleLink">giving off the impression</a> that the only worthwhile information is that which appears on the site.</p>
+    <p>Researcher Safiya Noble has also pointed to the ways in which Google engineers and facilitates racism, <a href="https://time.com/5209144/google-search-engine-algorithm-bias-racism/" class="googleLink">citing incidents</a> in which Black women and girls have been sexualized, and in which Black people have been <a href="https://mashable.com/2015/07/01/google-photos-black-people-gorillas/" class="googleLink">classified as subhuman</a> according to Google's algorithms. Google apologized for some of these incidents <a class="googleLink" href="https://www.cnet.com/news/google-apologizes-for-algorithm-mistakenly-calling-black-people-gorillas/">individually</a>, but has <a href="https://themarkup.org/google-the-giant/2020/07/23/google-advertising-keywords-black-girls" class="googleLink">made no effort</a> to change or adapt its technology to <a href="https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai" class="googleLink">fix the problem</a> on a structural level.</p>
+    <p>In December 2020, Google was <a class="googleLink" href="wired.com/story/google-antitrust-lawsuits-explainer/">hit with three antitrust cases</a> which claim that it engages in “anti-competitive” practices, a stance which it denies. But it cannot be denied that the company holds  profound sway over the way we conduct our digital lives, even getting its <a href="https://www.merriam-webster.com/dictionary/google" class="googleLink">name added as a verb</a> to the English dictionary.</p>
+
+    <h3 id="googleHeading">Google needs to be held accountable.</h3>
+    <h3 id="googleHeading">Google should say sorry.</h3>
+
+    <script type="text/javascript">
+
+      var colors = ['#3d81f7', '#ed4238', '#ffbd06', '#31ab52']
+
+      var gLinks = document.getElementsByClassName('googleLink');
+
+      for (var i = 0; i < gLinks.length; i++) {
+        colorIndex = i % 4;
+        gLinks[i].style.color = colors[colorIndex];
+        gLinks[i].onmouseover = function() {
+          var currentColor = this.style.color;
+          this.style.backgroundColor = currentColor;
+          this.style.color = 'white';
+        }
+
+        gLinks[i].onmouseout = function() {
+          var currentBackground = this.style.backgroundColor;
+          this.style.color = currentBackground;
+          this.style.backgroundColor = '#f8f9fa';
+        }
+      }
+
+
+    </script>
+  </body>
+</html>

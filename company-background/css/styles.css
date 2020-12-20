@@ -19,29 +19,65 @@
   src: url(../fonts/URWFormSemiCond-Medium.woff);
 }
 
+@font-face {
+  font-family: 'Product Sans Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/ProductSans-Regular.woff);
+}
+
 #uber {
-    background-color: black;
-    color:white;
-    font-family: 'Uber Move Medium', sans-serif;
-    font-size: xx-large;
-    margin: 2%;
-  }
+  background-color: black;
+  color:white;
+  font-family: 'Uber Move Medium', sans-serif;
+  font-size: xx-large;
+  margin: 2%;
+}
 
 #facebook {
-  background-color: #4170b7;
+  background-color: #3977f2;
   color: white;
   font-family: 'URW Form Semi Condensed Medium', sans-serif;
   font-size: xx-large;
   margin: 2%;
 }
 
+#google {
+  background-color: #f8f9fa;
+  color: #777777;
+  font-family: 'Product Sans Regular', sans-serif;
+  font-size: xx-large;
+  margin: 2%;
+}
+
+#googleHeading {
+  color: black;
+}
+
 a {
   text-decoration: none;
-  color:inherit;
+}
+
+.uberLink {
+  color:#f4afa7;
 }
 
 .uberLink:hover {
-  background-color: white;
-  color: black;
+  background-color: #276ef1;
+  color: white;
+  text-decoration: line-through;
+}
+
+.googleLink:hover {
+  text-decoration: line-through;
+}
+
+.fbLink {
+  color:#8dd37f;
+}
+
+.fbLink:hover {
+  background-color: #42b72a;
+  color: white;
   text-decoration: line-through;
 }

@@ -33,7 +33,6 @@ for (var i = 0; i < companies.length; i++) {
     var textToDisplay = this.id + "Text";
     var ind = companyNames.indexOf(this.id);
     document.getElementsByClassName('group1')[0].style.marginLeft = "10px";
-    // console.log(selectedVoices[ind]);
     displayText(textToDisplay, selectedVoices[ind]);
     //clear from chrome storage
   }
@@ -45,6 +44,10 @@ function displayText(id, v) {
     texts[i].style.display = "none";
   }
 
+  var name = id.split('Text');
+  var nameToPrint = name[0].charAt(0).toUpperCase() + name[0].slice(1);
+  // console.log(nameToPrint);
+  document.getElementById('signature').innerHTML = '<br>Love, ' + nameToPrint;
   document.getElementById(id).style.display = "block";
   var msg = new SpeechSynthesisUtterance(document.getElementById(id).innerHTML);
   voices = window.speechSynthesis.getVoices();
