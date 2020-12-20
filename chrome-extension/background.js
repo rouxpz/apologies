@@ -3,8 +3,8 @@ var totalCompanies = ["amazon", "facebook", "google"];
 var toSaySorry = ["amazon", "google"];
 
 chrome.runtime.onInstalled.addListener(function() {
-  // alert("Alarm set for " + timer + " minutes");
-  chrome.alarms.create("Start", {delayInMinutes:0});
+  console.log("Alarm set for " + timer + " minutes");
+  chrome.alarms.create("Start", {delayInMinutes:timer});
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [new chrome.declarativeContent.PageStateMatcher({})],
@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
   }
   var newTimer =  Math.floor(Math.random() * 2) + 1;
-  chrome.alarms.create("Second", {delayInMinutes: 0});
+  chrome.alarms.create("Second", {delayInMinutes: newTimer});
   console.log(toSaySorry);
   console.log("New alarm launched for " + newTimer + " minutes");
 });

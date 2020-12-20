@@ -53,7 +53,7 @@ function displayText(id, v) {
   voices = window.speechSynthesis.getVoices();
   console.log(voices[v]);
   msg.voice = voices[v];
-  // window.speechSynthesis.speak(msg);
+  window.speechSynthesis.speak(msg);
 }
 
 //set timeout to display an alert with new apology
