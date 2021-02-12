@@ -1,0 +1,63 @@
+body {
+  font-family: Arial;
+  font-size: 16px;
+  min-width: 300px;
+}
+.company {
+  height: 30px;
+  width: 30px;
+  /* outline: none; */
+  border-style: solid;
+  margin:0;
+}
+img {
+  margin: 0;
+}
+
+.parent {
+  display: flex;
+  width: 100%;
+}
+
+.group1 {
+  flex: 3;
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  /* margin-left: 10px; */
+  /* display:none; */
+  /* max-width: 300px; */
+}
+
+.group2 {
+  flex: 1;
+  float: left;
+  /* position:fixed; */
+  /* top:10px;
+  right: 10px; */
+}
+
+#apologyText {
+  display:none;
+  /* margin-top: 5px; */
+  font-size:14px;
+}
+
+#noApologyText {
+  display: none;
+  /* margin-top: 5px; */
+  font-size:14px;
+}
+#amazon, #google, #facebook {
+  display:none;
+  margin-top:5px;
+}
+/*
+#amazonText, #googleText, #facebookText {
+  display:none;
+  font-size: 14px;
+} */
+
+#signature {
+  font-size:14px;
+}

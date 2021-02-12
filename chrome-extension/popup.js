@@ -1,55 +1,57 @@
 let companies = document.getElementsByClassName('company');
 let companyNames = ['amazon', 'facebook', 'google'];
 let generated;
-var msg = '';
+var msg;
 var voices = window.speechSynthesis.getVoices();
 console.log(voices);
+let readYet;
 
 var selectedVoices = [0, 10, 40];
 
 chrome.storage.sync.get('apologies', function(data) {
-  msg = '';
-  for (var i = 0; i < companies.length; i++) {
-    companies[i].style.display = "none";
-  }
+  // msg = '';
   generated = data.apologies;
-  // alert("Apologies waiting from: " + generated[0] + " and " + generated[1]);
-  for (var i = 0; i < generated.length; i++) {
-    document.getElementById(generated[i]).style.display = "block";
+  // alert(generated[3]);
+  readYet = generated[3];
+  // alert(readYet);
+
+  if (readYet == false) {
+    document.getElementById(generated[1].toLowerCase()).style.display = "block";
     document.getElementsByClassName('group1')[0].style.marginLeft = "0px";
+    document.getElementById("apologyText").innerHTML = generated[2];
+    document.getElementById("noApologyText").style.display = "none";
+  } else {
+    for (var i = 0; i < companyNames.length; i++) {
+      document.getElementById(companyNames[i]).style.display = "none";
+    }
+    document.getElementById("noApologyText").style.display = "block";
+    document.getElementById("apologyText").style.display = "none";
   }
+
 });
 
 for (var i = 0; i < companies.length; i++) {
   companies[i].onclick = function() {
-    if (msg == '') {
-      msg = 'reload apologies';
+    alert(readYet);
+    if (readYet == false) {
+      // alert(readYet);
+      msg = 'restart date check';
       chrome.runtime.sendMessage({
-        msg: msg,
-        timer: Math.floor(Math.random() * 5),
-        companiesNumber: Math.floor(Math.random() * 3) + 1
+        msg: msg
       });
+      var ind = companyNames.indexOf(this.id);
+      document.getElementsByClassName('group1')[0].style.marginLeft = "10px";
+      displayText(selectedVoices[ind]);
+      console.log(msg);
     }
-    var textToDisplay = this.id + "Text";
-    var ind = companyNames.indexOf(this.id);
-    document.getElementsByClassName('group1')[0].style.marginLeft = "10px";
-    displayText(textToDisplay, selectedVoices[ind]);
+    // var textToDisplay = this.id + "Text";
     //clear from chrome storage
   }
 }
 
-function displayText(id, v) {
-  var texts = document.getElementsByClassName('apologyText');
-  for (var i = 0; i < texts.length; i++) {
-    texts[i].style.display = "none";
-  }
-
-  var name = id.split('Text');
-  var nameToPrint = name[0].charAt(0).toUpperCase() + name[0].slice(1);
-  // console.log(nameToPrint);
-  document.getElementById('signature').innerHTML = '<br>Love, ' + nameToPrint;
-  document.getElementById(id).style.display = "block";
-  var msg = new SpeechSynthesisUtterance(document.getElementById(id).innerHTML);
+function displayText(v) {
+  document.getElementById("apologyText").style.display = "block";
+  var msg = new SpeechSynthesisUtterance(document.getElementById("apologyText").innerHTML);
   voices = window.speechSynthesis.getVoices();
   console.log(voices[v]);
   msg.voice = voices[v];
