@@ -5,10 +5,12 @@ body {
   background-color: #3d3f3f;
   color: #cdd4d3;
 }
+
 .company {
   height: 40px;
   width: 40px;
   /* outline: none; */
+  border-color: #a4a9a8;
   border-style: solid;
   margin:0;
 }
