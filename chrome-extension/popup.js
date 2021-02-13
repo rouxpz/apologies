@@ -1,12 +1,12 @@
 let companies = document.getElementsByClassName('company');
-let companyNames = ['amazon', 'facebook', 'google'];
+let companyNames = ['amazon', 'facebook', 'google', 'uber'];
 let generated;
 var msg;
 var voices = window.speechSynthesis.getVoices();
 // console.log(voices);
 let readYet;
 
-var selectedVoices = [0, 10, 40];
+var selectedVoices = [0, 10, 40, 0];
 
 chrome.storage.sync.get('apologies', function(data) {
   // msg = '';

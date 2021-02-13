@@ -2,7 +2,7 @@
   "name": "Big Tech Says Sorry (Interruptions)",
   "version": "1.1",
   "description": "Version for consideration for the Wheaton Biennial 2021",
-  "permissions": ["activeTab", "declarativeContent", "storage", "alarms"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "alarms", "idle"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false

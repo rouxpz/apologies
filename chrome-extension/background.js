@@ -26,7 +26,7 @@ xmlhttp.open("GET", "data/apology-data.json", true);
 xmlhttp.send();
 
 chrome.runtime.onInstalled.addListener(function() {
-  checkTimer = setInterval(checkDate, 2000);
+  checkTimer = setInterval(checkDate, 60000);
   // console.log("Alarm set for " + timer + " minutes");
   // chrome.alarms.create("Start", {delayInMinutes:timer});
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
@@ -36,6 +36,14 @@ chrome.runtime.onInstalled.addListener(function() {
     }]);
   });
 });
+
+chrome.idle.onStateChanged.addListener(function(state) {
+  if (state == 'active') {
+    // console.log("last checked date: " + lastCheckedDate);
+    clearInterval(checkTimer);
+    checkTimer = setInterval(checkDate, 60000);
+  }
+})
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.msg == 'restart date check') {
@@ -67,7 +75,7 @@ function checkDate() {
     // console.log(toSaySorry);
 
     //setting timer to launch alert
-    var newTimer =  Math.floor(Math.random() * 1);
+    var newTimer =  Math.floor(Math.random() * 60) + 1;
     chrome.alarms.create("Second", {delayInMinutes: newTimer});
     // console.log(toSaySorry);
     // console.log("New alarm launched for " + newTimer + " minutes");
@@ -80,10 +88,7 @@ function checkDate() {
   } else if (d.getDate() >= 27) {
     clearInterval(checkTimer);
     console.log("project period over");
+  } else if (d.getDate() < 22) {
+    console.log("waiting for project to start!");
   }
 }
-
-//TODO:
-//expand timings to an hour range
-//expand texts
-//add Uber icon
