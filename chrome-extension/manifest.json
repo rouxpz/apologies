@@ -1,5 +1,5 @@
 {
-  "name": "Big Tech Says Sorry (XXX)",
+  "name": "Big Tech Says Sorry (Interruptions)",
   "version": "1.1",
   "description": "Version for consideration for the Wheaton Biennial 2021",
   "permissions": ["activeTab", "declarativeContent", "storage", "alarms"],

@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 chrome.alarms.onAlarm.addListener(function() {
-  alert("You have a new apology waiting.");
+  alert("Today is February " + d.getDate() + ", 2021. You have a new apology waiting.");
   chrome.storage.sync.set({apologies:toSaySorry}, function() {
     console.log('new apologies available');
   });
@@ -69,13 +69,21 @@ function checkDate() {
     //setting timer to launch alert
     var newTimer =  Math.floor(Math.random() * 1);
     chrome.alarms.create("Second", {delayInMinutes: newTimer});
-    console.log(toSaySorry);
-    console.log("New alarm launched for " + newTimer + " minutes");
+    // console.log(toSaySorry);
+    // console.log("New alarm launched for " + newTimer + " minutes");
 
     lastCheckedDate = today;
-    console.log("last checked date: " + lastCheckedDate);
+    // console.log("last checked date: " + lastCheckedDate);
     clearInterval(checkTimer);
   } else if (dates.indexOf(today) != -1 && lastCheckedDate == today){
     console.log("date already checked today");
+  } else if (d.getDate() >= 27) {
+    clearInterval(checkTimer);
+    console.log("project period over");
   }
 }
+
+//TODO:
+//expand timings to an hour range
+//expand texts
+//add Uber icon

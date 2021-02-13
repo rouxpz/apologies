@@ -3,7 +3,7 @@ let companyNames = ['amazon', 'facebook', 'google'];
 let generated;
 var msg;
 var voices = window.speechSynthesis.getVoices();
-console.log(voices);
+// console.log(voices);
 let readYet;
 
 var selectedVoices = [0, 10, 40];
@@ -24,15 +24,15 @@ chrome.storage.sync.get('apologies', function(data) {
     for (var i = 0; i < companyNames.length; i++) {
       document.getElementById(companyNames[i]).style.display = "none";
     }
-    document.getElementById("noApologyText").style.display = "block";
-    document.getElementById("apologyText").style.display = "none";
+    // document.getElementById("apologyText").style.display = "none";
+    // document.getElementById("noApologyText").style.display = "inline-block";
   }
 
 });
 
 for (var i = 0; i < companies.length; i++) {
   companies[i].onclick = function() {
-    alert(readYet);
+    // alert(readYet);
     if (readYet == false) {
       // alert(readYet);
       msg = 'restart date check';
@@ -40,9 +40,10 @@ for (var i = 0; i < companies.length; i++) {
         msg: msg
       });
       var ind = companyNames.indexOf(this.id);
-      document.getElementsByClassName('group1')[0].style.marginLeft = "10px";
+      document.getElementsByClassName('group1')[0].style.marginLeft = "15px";
       displayText(selectedVoices[ind]);
-      console.log(msg);
+      document.getElementById("signature").innerHTML = "<br>Love, " + this.id.charAt(0).toUpperCase() + this.id.slice(1);
+      // console.log(msg);
     }
     // var textToDisplay = this.id + "Text";
     //clear from chrome storage
