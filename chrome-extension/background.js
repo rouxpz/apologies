@@ -4,7 +4,7 @@ var dates = [];
 var texts = [];
 var toSaySorry;
 let d = new Date();
-let today = (d.getMonth() + 1) + '/' + d.getDate();
+let today;
 let checkTimer;
 let lastCheckedDate = '';
 
@@ -62,6 +62,7 @@ chrome.alarms.onAlarm.addListener(function() {
 });
 
 function checkDate() {
+  today = (d.getMonth() + 1) + '/' + d.getDate();
   toSaySorry = [];
   if (dates.indexOf(today) != -1 && lastCheckedDate != today) {
     console.log("today's date at " + dates.indexOf(today));
@@ -78,7 +79,7 @@ function checkDate() {
     var newTimer =  Math.floor(Math.random() * 60) + 1;
     chrome.alarms.create("Second", {delayInMinutes: newTimer});
     // console.log(toSaySorry);
-    // console.log("New alarm launched for " + newTimer + " minutes");
+    console.log("New alarm launched for " + newTimer + " minutes");
 
     lastCheckedDate = today;
     // console.log("last checked date: " + lastCheckedDate);
