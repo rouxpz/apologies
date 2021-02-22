@@ -2,7 +2,7 @@ let timer = Math.floor(Math.random() * 5) + 1;
 var totalCompanies = [];
 var dates = [];
 var texts = [];
-var toSaySorry;
+var toSaySorry = [];
 let d;
 let today;
 let checkTimer;
@@ -50,6 +50,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     checkTimer = setInterval(checkDate, 120000);
     chrome.storage.sync.set({apologies:[toSaySorry[0], toSaySorry[1], toSaySorry[2], true]}, function() {
       console.log('no new apologies available');
+      toSaySorry = [];
     });
   }
 });
@@ -65,7 +66,7 @@ function checkDate() {
   d = new Date();
   today = (d.getMonth() + 1) + '/' + d.getDate();
   // console.log(today);
-  toSaySorry = [];
+  // toSaySorry = [];
   if (dates.indexOf(today) != -1 && lastCheckedDate != today) {
     // console.log("today's date at " + dates.indexOf(today));
 
@@ -81,13 +82,13 @@ function checkDate() {
     var newTimer =  Math.floor(Math.random() * 1080) + 1;
     chrome.alarms.create("Second", {delayInMinutes: newTimer});
     // console.log(toSaySorry);
-    // console.log("New alarm launched for " + newTimer + " minutes");
+    console.log("New alarm launched for " + newTimer + " minutes");
 
     lastCheckedDate = today;
     // console.log("last checked date: " + lastCheckedDate);
     clearInterval(checkTimer);
   } else if (dates.indexOf(today) != -1 && lastCheckedDate == today){
-    // console.log("date already checked today");
+    console.log(toSaySorry);
   } else if (d.getDate() >= 27) {
     clearInterval(checkTimer);
     // console.log("project period over");
